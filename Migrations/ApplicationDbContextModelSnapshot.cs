@@ -82,7 +82,7 @@ namespace PORTFOLOSITE.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Stock");
+                    b.ToTable("Stocks");
                 });
 
             modelBuilder.Entity("PORTFOLOSITE.Models.Comment", b =>

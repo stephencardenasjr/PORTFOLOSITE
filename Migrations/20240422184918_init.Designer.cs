@@ -12,7 +12,7 @@ using PORTFOLOSITE.Data;
 namespace PORTFOLOSITE.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240422175511_init")]
+    [Migration("20240422184918_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -85,7 +85,7 @@ namespace PORTFOLOSITE.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Stock");
+                    b.ToTable("Stocks");
                 });
 
             modelBuilder.Entity("PORTFOLOSITE.Models.Comment", b =>

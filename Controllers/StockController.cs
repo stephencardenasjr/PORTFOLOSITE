@@ -4,6 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PORTFOLOSITE.Data;
+using PORTFOLOSITE.Mappers;
+
+
 
 namespace PORTFOLOSITE.Controllers
 {
@@ -20,7 +23,9 @@ namespace PORTFOLOSITE.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var stocks = _context.Stocks.ToList(); 
+            var stocks = _context.Stocks.ToList()
+                .Select(s => s.ToStockDto());
+
             return Ok(stocks);
         }
 
@@ -28,13 +33,13 @@ namespace PORTFOLOSITE.Controllers
         public IActionResult GetById([FromRoute] int Id)
         {
             var stock = _context.Stocks.Find(Id);   
-            
+
             if(stock == null)
             {
                 return NotFound();
             }
 
-            return Ok(stock);
+            return Ok(stock.ToStockDto());
         }
     }
 }
