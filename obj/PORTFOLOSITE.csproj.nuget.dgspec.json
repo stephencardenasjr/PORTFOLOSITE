@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\STEEVEELEE\\Desktop\\PORTFOLOSITE\\PORTFOLOSITE.csproj": {}
+    "c:\\Users\\STEEVEELEE\\Desktop\\PORTFOLOSITE\\PORTFOLOSITE.csproj": {}
   },
   "projects": {
-    "C:\\Users\\STEEVEELEE\\Desktop\\PORTFOLOSITE\\PORTFOLOSITE.csproj": {
+    "c:\\Users\\STEEVEELEE\\Desktop\\PORTFOLOSITE\\PORTFOLOSITE.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\STEEVEELEE\\Desktop\\PORTFOLOSITE\\PORTFOLOSITE.csproj",
+        "projectUniqueName": "c:\\Users\\STEEVEELEE\\Desktop\\PORTFOLOSITE\\PORTFOLOSITE.csproj",
         "projectName": "PORTFOLOSITE",
-        "projectPath": "C:\\Users\\STEEVEELEE\\Desktop\\PORTFOLOSITE\\PORTFOLOSITE.csproj",
+        "projectPath": "c:\\Users\\STEEVEELEE\\Desktop\\PORTFOLOSITE\\PORTFOLOSITE.csproj",
         "packagesPath": "C:\\Users\\STEEVEELEE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\STEEVEELEE\\Desktop\\PORTFOLOSITE\\obj\\",
+        "outputPath": "c:\\Users\\STEEVEELEE\\Desktop\\PORTFOLOSITE\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\STEEVEELEE\\AppData\\Roaming\\NuGet\\NuGet.Config",

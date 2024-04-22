@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KHHGBDrcc2QVAyLa2ES7AiJVm3sHIyIn/YP+4Kj2n675ZTZ7KU1TKYffhSwRrnX8yAvSVPMoQydZxb/fkh/iWg==",
+  "dgSpecHash": "uPC73Eut+36uDITeNlOwywXoASCCENlQACgiwA+0QOioEPlvSkSSGnBHGN8ob17PLob2F5E8IQagkeAmZGKnhw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\STEEVEELEE\\Desktop\\PORTFOLOSITE\\PORTFOLOSITE.csproj",
+  "projectFilePath": "c:\\Users\\STEEVEELEE\\Desktop\\PORTFOLOSITE\\PORTFOLOSITE.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\STEEVEELEE\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\STEEVEELEE\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
