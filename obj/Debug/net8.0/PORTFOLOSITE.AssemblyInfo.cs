@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PORTFOLOSITE")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bed7ca801abbbb58f42024fcbc897f3c847e2df2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fcccbb27334dcbc878838ecc85c7aa2c402fefd")]
 [assembly: System.Reflection.AssemblyProductAttribute("PORTFOLOSITE")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PORTFOLOSITE")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

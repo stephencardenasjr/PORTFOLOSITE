@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using PORTFOLOSITE.Data;
 using PORTFOLOSITE.DTOs.Stock;
 using PORTFOLOSITE.Mappers;
@@ -22,18 +23,18 @@ namespace PORTFOLOSITE.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var stocks = _context.Stocks.ToList()
-                .Select(s => s.ToStockDto());
+            var stocks = await _context.Stocks.ToListAsync();
+            var sockDto = stocks.Select(s => s.ToStockDto());
 
             return Ok(stocks);
         }
 
         [HttpGet("{Id}")]
-        public IActionResult GetById([FromRoute] int Id)
+        public  async Task<IActionResult> GetById([FromRoute] int Id)
         {
-            var stock = _context.Stocks.Find(Id);
+            var stock = await _context.Stocks.FindAsync(Id);
 
             if (stock == null)
             {
@@ -44,11 +45,11 @@ namespace PORTFOLOSITE.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] CreateStockRequestDto stockDto)
+        public async  Task<IActionResult> Create([FromBody] CreateStockRequestDto stockDto)
         {
             var stockModel = stockDto.ToStockFromCreateDto();
-            _context.Stocks.Add(stockModel);
-            _context.SaveChanges();
+            await _context.Stocks.AddAsync(stockModel);
+            await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetById), new { id = stockModel.Id }, stockModel.ToStockDto());
         }
 
@@ -56,9 +57,9 @@ namespace PORTFOLOSITE.Controllers
 
         [Route("{id}")]
 
-        public IActionResult Update([FromRoute] int id, [FromBody] UpdateStockRequestDto updateDto)
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateStockRequestDto updateDto)
         {
-            var stockModel = _context.Stocks.FirstOrDefault(x => x.Id == id);
+            var stockModel = await _context.Stocks.FirstOrDefaultAsync  (x => x.Id == id);
 
             if (stockModel == null)
             {
@@ -72,10 +73,28 @@ namespace PORTFOLOSITE.Controllers
             stockModel.Industry = updateDto.Industry;
             stockModel.MarketCap = updateDto.MarketCap;
 
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return Ok(stockModel.ToStockDto());
 
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+
+        public async Task<IActionResult> Delete([FromRoute] int id)
+        {
+            var stockModel = await _context.Stocks.FirstOrDefaultAsync(x => x.Id == id);
+
+            if(stockModel == null)
+            {
+                return NotFound();
+            }     
+
+            _context.Stocks.Remove(stockModel);
+            await _context.SaveChangesAsync();
+
+            return NoContent();   
         }
     }
 }
