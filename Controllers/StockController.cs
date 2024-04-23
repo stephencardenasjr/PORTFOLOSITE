@@ -15,7 +15,7 @@ namespace PORTFOLOSITE.Controllers
     [ApiController]
     public class StockController : ControllerBase
     {
-        private readonly ApplicationDbContext   _context;
+        private readonly ApplicationDbContext _context;
         public StockController(ApplicationDbContext context)
         {
             _context = context;
@@ -33,9 +33,9 @@ namespace PORTFOLOSITE.Controllers
         [HttpGet("{Id}")]
         public IActionResult GetById([FromRoute] int Id)
         {
-            var stock = _context.Stocks.Find(Id);   
+            var stock = _context.Stocks.Find(Id);
 
-            if(stock == null)
+            if (stock == null)
             {
                 return NotFound();
             }
@@ -49,7 +49,33 @@ namespace PORTFOLOSITE.Controllers
             var stockModel = stockDto.ToStockFromCreateDto();
             _context.Stocks.Add(stockModel);
             _context.SaveChanges();
-            return CreatedAtAction(nameof(GetById), new {id = stockModel.Id}, stockModel.ToStockDto());
+            return CreatedAtAction(nameof(GetById), new { id = stockModel.Id }, stockModel.ToStockDto());
+        }
+
+        [HttpPut]
+
+        [Route("{id}")]
+
+        public IActionResult Update([FromRoute] int id, [FromBody] UpdateStockRequestDto updateDto)
+        {
+            var stockModel = _context.Stocks.FirstOrDefault(x => x.Id == id);
+
+            if (stockModel == null)
+            {
+                return NotFound();
+            }
+
+            stockModel.Symbol = updateDto.Symbol;
+            stockModel.CompanyName = updateDto.CompanyName;
+            stockModel.Purchace = updateDto.Purchace;
+            stockModel.LastDiv = updateDto.LastDiv;
+            stockModel.Industry = updateDto.Industry;
+            stockModel.MarketCap = updateDto.MarketCap;
+
+            _context.SaveChanges();
+
+            return Ok(stockModel.ToStockDto());
+
         }
     }
 }
